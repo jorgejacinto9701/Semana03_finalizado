@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,6 +37,8 @@ public class ClienteServlet extends HttpServlet{
 		objCliente.setNombre(vnombre);
 		objCliente.setDni(vdni);
 		objCliente.setCategoria(objCategoria);
+		objCliente.setEstado(1);
+		objCliente.setFechaRegistro(new Timestamp(System.currentTimeMillis()));
 		
 		ClienteModel clienteModel = new ClienteModel();
 		int s = clienteModel.insertaCliente(objCliente);
